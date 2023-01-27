@@ -22,7 +22,7 @@ def gpt3_completion(prompt, engine='text-davinci-002', temp=0.7, top_p = 1.0, to
     return text
   
 if __name__ == '__main__' :
-    prompt = 'Write a list of 5 famous American actors:'
+    prompt = 'When will South Korea and North Korea be unified?:'
     response = gpt3_completion(prompt)
     print(response)
         
