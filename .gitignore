@@ -1,4 +1,5 @@
 openaiapikey.txt
+<<<<<<< HEAD
 temp.py
 *.csv
 *.zip
@@ -10,3 +11,6 @@ data/olympics_sections_document_embeddings.csv
 ./data/*.csv
 ./data/
 *.ipynb
+=======
+temp.py
+>>>>>>> bb938e08334f9517ce4990a8efef5f12c07628c7
