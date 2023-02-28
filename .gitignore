@@ -1,1 +1,12 @@
 openaiapikey.txt
+temp.py
+*.csv
+*.zip
+olympics_sections_document_embeddings.csv
+./data/olympics_sections_document_embeddings.csv
+data/
+data/*.csv
+data/olympics_sections_document_embeddings.csv
+./data/*.csv
+./data/
+*.ipynb

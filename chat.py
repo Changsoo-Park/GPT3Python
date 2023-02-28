@@ -7,7 +7,7 @@ def open_file(filepath) :
 
 openai.api_key=open_file('openaiapikey.txt')
 
-def gpt3_completion(prompt, engine='text-davinci-003', temp=0.7, top_p = 1.0, tokens =400, freq_pen=0.0, pres_pen=0.0, stop=['<<END>>']) :
+def gpt3_completion(prompt, engine='text-davinci-003', temp=0.7, top_p = 1.0, tokens =400, freq_pen=0.0, pres_pen=0.0, stop=['JAX: ', 'USER: ']) :
     prompt = prompt.encode(encoding='ASCII', errors='ignore').decode()
     response = openai.Completion.create(
         #engine=engine,
@@ -23,7 +23,14 @@ def gpt3_completion(prompt, engine='text-davinci-003', temp=0.7, top_p = 1.0, to
     return text
   
 if __name__ == '__main__' :
-    prompt = 'When will South Korea and North Korea be unified?:'
-    response = gpt3_completion(prompt)
-    print(response)
+    conversation = list()
+    while True:
+        user_input = input('USER: ')
+        conversation.append('USER: %s' % user_input)
+        text_block = '\n'.join(conversation)
+        prompt = open_file('prompt_chat.txt').replace('<<BLOCK>>', text_block)
+        prompt = prompt + '\JAX: '
+        response = gpt3_completion(prompt)
+        print('JAX: ', response)
+        conversation.append('JAX: %s' % response)
         
